@@ -14,7 +14,10 @@ REVIEW → TEXT CLEANING
     │       └── TF-IDF → Logistic Regression → Sentiment
     └── Embeddings
             └── Sentence Transformer → Vector → Cosine Similarity → Similar Reviews
+
+
 🛠️ Project Workflow
+
 1. Dataset
 
 A small labeled sample of movie reviews (positive and negative) used to demonstrate both pipelines end-to-end.
@@ -23,11 +26,13 @@ A small labeled sample of movie reviews (positive and negative) used to demonstr
 Converted reviews into numerical features using TF-IDF (with unigrams + bigrams)
 Trained a Logistic Regression classifier on the TF-IDF vectors
 Evaluated the model on unseen sample reviews to predict Positive/Negative sentiment
+
 3. Semantic Similarity (Embeddings)
 Generated dense sentence embeddings using the pretrained sentence-transformers/all-MiniLM-L6-v2 model
 Encoded a new user review into the same embedding space
 Computed cosine similarity between the user review and all existing reviews
 Retrieved the top-k most semantically similar reviews — enabling semantic search without a vector database
+
 4. Combined Analysis Function
 
 Built a unified analyze_review() function that, for any input review:
@@ -47,16 +52,21 @@ Text Processing
                                     └────────────────────────┘
     ↓
 FINAL ANALYSIS
+
+
 🧰 Tech Stack
 Python
 Scikit-learn – TF-IDF vectorization, Logistic Regression, cosine similarity
 Sentence-Transformers – pretrained embedding model (all-MiniLM-L6-v2)
 NumPy – similarity ranking and array operations
+
 🚀 How to Run
 Clone the repository
 Install dependencies: pip install scikit-learn sentence-transformers numpy
 Run the notebook nlp_final_project.ipynb
 Call analyze_review("your review text here") to get sentiment + similar reviews
+
+
 📈 Key Insights
 Combining a classical bag-of-words model with modern embedding-based similarity gives both an interpretable sentiment label and rich semantic context
 TF-IDF + Logistic Regression performs well for sentiment classification even on small datasets
